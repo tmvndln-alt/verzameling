@@ -2,9 +2,17 @@
 <html lang="nl">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>De verzameling van Tom</title>
 <meta name="description" content="Platen, Stephen King-boeken en vondsten">
+<meta name="theme-color" content="#f3eee4">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Verzameling">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" href="icon-192.png">
+<link rel="manifest" href="manifest.webmanifest">
 <style>
   :root {
     --papier: #f3eee4;
@@ -31,7 +39,7 @@
   }
 
   header.kop {
-    padding: 40px 24px 8px;
+    padding: calc(40px + env(safe-area-inset-top)) 24px 8px;
     max-width: 1280px;
     margin: 0 auto;
   }
@@ -90,6 +98,7 @@
     gap: 30px 22px;
   }
   @media (max-width: 520px) {
+    header.kop { padding-top: calc(28px + env(safe-area-inset-top)) !important; }
     .tab-lijst { flex-wrap: nowrap; overflow-x: auto; width: 100%; scrollbar-width: none; }
     .tab-lijst::-webkit-scrollbar { display: none; }
     .tab { flex: none; }
@@ -183,6 +192,14 @@
   .velden dt { color: var(--inkt-zacht); }
   .velden dd { margin: 0; overflow-wrap: anywhere; }
   .velden a { color: var(--accent); }
+  .tracks-kop { font-family: var(--serif); font-size: 18px; font-weight: 600; margin: 24px 0 8px; }
+  .tracks { list-style: none; margin: 0; padding: 0; font-size: 15px; border-top: 1px solid var(--lijn); }
+  .tracks li { display: grid; grid-template-columns: 2.6em 1fr auto; gap: 10px; padding: 6px 0; border-bottom: 1px solid var(--lijn); }
+  .tracks li.kant { display: block; color: var(--inkt-zacht); font-size: 13px; text-transform: uppercase; letter-spacing: .06em; padding-top: 12px; }
+  .tracks .pos { color: var(--inkt-zacht); font-variant-numeric: tabular-nums; }
+  .tracks .duur { color: var(--inkt-zacht); font-variant-numeric: tabular-nums; }
+  .bron { margin-top: 14px; font-size: 13px; }
+  .bron a { color: var(--accent); }
   .sluit {
     position: absolute; top: 10px; right: 10px; z-index: 3;
     width: 36px; height: 36px; border-radius: 50%;
@@ -228,6 +245,7 @@
       <h2 id="detail-titel"></h2>
       <p class="detail-sub" id="detail-sub"></p>
       <dl class="velden" id="detail-velden"></dl>
+      <div id="detail-tracks"></div>
     </div>
   </div>
 </dialog>
@@ -352,6 +370,21 @@
       else dd.textContent = waarde;
       dl.append(el("dt", { text: label }), dd);
     }
+    const tr = $("detail-tracks");
+    tr.replaceChildren();
+    if (item.tracks && item.tracks.length) {
+      tr.append(el("h3", { class: "tracks-kop", text: "Tracklist" }));
+      const ol = el("ol", { class: "tracks" });
+      for (const [pos, titel, duur] of item.tracks) {
+        if (!pos && !duur) { ol.append(el("li", { class: "kant", text: titel })); continue; }
+        ol.append(el("li", {}, el("span", { class: "pos", text: pos }), el("span", { text: titel }), el("span", { class: "duur", text: duur })));
+      }
+      tr.append(ol);
+      if (item.discogs) {
+        tr.append(el("p", { class: "bron" }, document.createTextNode("Tracklist via "),
+          el("a", { href: item.discogs, target: "_blank", rel: "noopener", text: "Discogs" })));
+      }
+    }
     $("detail").showModal();
   }
 
@@ -368,7 +401,7 @@
       if (data.ondertitel) $("ondertitel").textContent = data.ondertitel;
       for (const c of data.collecties) {
         for (const it of c.items) {
-          it.zoektekst = [it.naam, it.groep, ...(it.velden || []).map((v) => v[1])].join(" ");
+          it.zoektekst = [it.naam, it.groep, ...(it.velden || []).map((v) => v[1]), ...(it.tracks || []).map((t) => t[1])].join(" ");
         }
       }
       const vanHash = data.collecties.find((c) => "#" + c.slug === location.hash);
