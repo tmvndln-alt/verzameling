@@ -1,7 +1,7 @@
 {
  "titel": "De verzameling van Tom",
  "ondertitel": "Platen, Stephen King en vondsten",
- "bijgewerkt": "2026-11-05T14:53:23+00:00",
+ "bijgewerkt": "2026-11-05T14:55:18+00:00",
  "collecties": [
   {
    "id": "01a18bce-3b9e-744d-bebf-d0201d07006b",
@@ -9807,17 +9807,22 @@
      ],
      "tracks": [
       [
-       "A",
-       "Grendel (Fair Deal Studios Version)",
-       "19:09"
+       "A1",
+       "Market Square Heroes",
+       "3:45"
       ],
       [
-       "AA",
-       "Grendel (Live At Reading Rock Festival 1983)",
-       "18:07"
+       "A2",
+       "Three Boats Down From The Candy",
+       "4:33"
+      ],
+      [
+       "B",
+       "Grendel",
+       "17:40"
       ]
      ],
-     "discogs": "https://www.discogs.com/release/4496864-Marillion-Grendel"
+     "discogs": "https://www.discogs.com/release/1018991-Marillion-Market-Square-Heroes"
     },
     {
      "id": "01a188e7-3b6e-76ca-ae95-1c0806a62f31",
