@@ -198,6 +198,17 @@
   .tracks li.kant { display: block; color: var(--inkt-zacht); font-size: 13px; text-transform: uppercase; letter-spacing: .06em; padding-top: 12px; }
   .tracks .pos { color: var(--inkt-zacht); font-variant-numeric: tabular-nums; }
   .tracks .duur { color: var(--inkt-zacht); font-variant-numeric: tabular-nums; }
+  .luister { display: flex; flex-wrap: wrap; gap: 8px; margin: 22px 0 0; }
+  .luister a {
+    display: inline-flex; align-items: center; gap: 7px;
+    padding: 8px 14px; border-radius: 999px; text-decoration: none;
+    font-size: 14px; font-weight: 600; color: #fff;
+  }
+  .luister a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .luister svg { width: 16px; height: 16px; fill: currentColor; }
+  .luister .spotify { background: #1db954; color: #0b2b16; }
+  .luister .apple { background: #fa2d48; }
+  .luister .youtube { background: #e62117; }
   .bron { margin-top: 14px; font-size: 13px; }
   .bron a { color: var(--accent); }
   .sluit {
@@ -369,6 +380,25 @@
       if (/^https?:\/\//.test(waarde)) dd.append(el("a", { href: waarde, target: "_blank", rel: "noopener", text: "Link" }));
       else dd.textContent = waarde;
       dl.append(el("dt", { text: label }), dd);
+    }
+    const oud = document.querySelector(".detail-tekst .luister");
+    if (oud) oud.remove();
+    if (c.plaat) {
+      const artiest = item.sub || "";
+      const zoek = encodeURIComponent([artiest, item.naam].filter(Boolean).join(" "));
+      const speel = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>';
+      const rij = el("div", { class: "luister" });
+      for (const [cls, naam, url] of [
+        ["spotify", "Spotify", "https://open.spotify.com/search/" + zoek],
+        ["apple", "Apple Music", "https://music.apple.com/nl/search?term=" + zoek],
+        ["youtube", "YouTube", "https://www.youtube.com/results?search_query=" + zoek + "+full+album"],
+      ]) {
+        const a = el("a", { class: cls, href: url, target: "_blank", rel: "noopener", "aria-label": "Luister op " + naam });
+        a.innerHTML = speel;
+        a.append(document.createTextNode(naam));
+        rij.append(a);
+      }
+      $("detail-velden").after(rij);
     }
     const tr = $("detail-tracks");
     tr.replaceChildren();
