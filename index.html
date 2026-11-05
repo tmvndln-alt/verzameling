@@ -91,15 +91,6 @@
 
   main { max-width: 1280px; margin: 0 auto; padding: 24px 24px 64px; }
   .status { color: var(--inkt-zacht); font-size: 14px; margin: 0 0 18px; }
-  .filters { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 14px; align-items: center; }
-  .filter {
-    font: inherit; font-size: 14px; padding: 6px 10px; border-radius: 8px;
-    border: 1px solid var(--lijn); background: var(--kaart); color: var(--inkt); max-width: 220px;
-  }
-  .filter.actief { border-color: var(--inkt); background: var(--inkt); color: var(--papier); }
-  .wis { appearance: none; border: 0; background: none; font: inherit; font-size: 14px; color: var(--accent); cursor: pointer; padding: 6px 4px; text-decoration: underline; }
-  .filter:focus-visible, .wis:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-  @media (max-width: 520px) { .filter { flex: 1 1 calc(50% - 8px); max-width: none; } }
 
   .raster {
     display: grid;
@@ -240,7 +231,6 @@
 </nav>
 
 <main>
-  <div class="filters" id="filters"></div>
   <p class="status" id="status">Laden…</p>
   <div id="inhoud"></div>
 </main>
@@ -263,70 +253,7 @@
 <script>
 (() => {
   const $ = (id) => document.getElementById(id);
-  const staat = { data: null, actief: null, zoek: "", sorteer: "naam", filters: {} };
-  const FILTER_VELDEN = ["Decennium", "Genre", "Formaat", "Land", "Leesstatus", "Staat", "Staat Vinyl", "Categorie", "Periode", "Conditie", "Lijst"];
-
-  function hoofdletter(t) { return t ? t.charAt(0).toUpperCase() + t.slice(1) : t; }
-  function waardenVan(item, label) {
-    if (label === "Decennium") {
-      const j = (item.velden || []).find((v) => /^(jaar|year)$/i.test(v[0]));
-      const m = j && String(j[1]).match(/\b(19|20)\d{2}\b/);
-      if (!m) return [];
-      const d = Math.floor(Number(m[0]) / 10) * 10;
-      return ["Jaren " + (d < 2000 ? String(d).slice(2) : d)];
-    }
-    const v = (item.velden || []).find((x) => x[0].toLowerCase() === label.toLowerCase());
-    if (!v) return [];
-    return String(v[1]).split(/\s*[,;]\s*/).map((x) => x.trim()).filter(Boolean).map(hoofdletter);
-  }
-  function facetten(c) {
-    if (c._facetten) return c._facetten;
-    const uit = [];
-    for (const label of FILTER_VELDEN) {
-      const telling = new Map();
-      for (const it of c.items) for (const w of waardenVan(it, label)) {
-        const k = w.toLowerCase();
-        const e = telling.get(k) || { naam: w, n: 0 };
-        e.n++; telling.set(k, e);
-      }
-      if (telling.size >= 2 && telling.size <= 60) {
-        const opties = [...telling.values()].sort((a, b) =>
-          label === "Decennium" ? a.naam.localeCompare(b.naam, "nl", { numeric: true }) : b.n - a.n || a.naam.localeCompare(b.naam, "nl"));
-        uit.push({ label, opties });
-      }
-    }
-    c._facetten = uit;
-    return uit;
-  }
-  function voldoet(item, f) {
-    for (const [label, waarde] of Object.entries(f)) {
-      if (!waarde) continue;
-      if (!waardenVan(item, label).some((w) => w.toLowerCase() === waarde)) return false;
-    }
-    return true;
-  }
-  function tekenFilters(c) {
-    const box = $("filters");
-    box.replaceChildren();
-    if (!c) return;
-    const f = staat.filters[c.id] || (staat.filters[c.id] = {});
-    for (const { label, opties } of facetten(c)) {
-      const sel = el("select", { class: "filter" + (f[label] ? " actief" : ""), "aria-label": label });
-      sel.append(el("option", { value: "", text: label + ": alle" }));
-      for (const o of opties) {
-        const opt = el("option", { value: o.naam.toLowerCase(), text: `${o.naam} (${o.n})` });
-        if (f[label] === o.naam.toLowerCase()) { opt.selected = true; opt.textContent = `${label}: ${o.naam}`; }
-        sel.append(opt);
-      }
-      sel.addEventListener("change", () => { f[label] = sel.value; tekenFilters(c); tekenRaster(); });
-      box.append(sel);
-    }
-    if (Object.values(f).some(Boolean)) {
-      const wis = el("button", { class: "wis", type: "button", text: "Wis filters" });
-      wis.addEventListener("click", () => { staat.filters[c.id] = {}; tekenFilters(c); tekenRaster(); });
-      box.append(wis);
-    }
-  }
+  const staat = { data: null, actief: null, zoek: "", sorteer: "naam" };
   const kleuren = ["#7a3b2e", "#2f4f4f", "#5b4a7a", "#8a6a2f", "#3d5a3a", "#6a2f4f", "#2f4a6a", "#7a5a3b"];
 
   function kleurVoor(tekst) {
@@ -391,7 +318,6 @@
     const c = staat.data.collecties.find((x) => x.id === id);
     if (c) history.replaceState(null, "", "#" + c.slug);
     tekenTabs();
-    tekenFilters(c);
     tekenRaster();
     window.scrollTo({ top: 0 });
   }
@@ -403,18 +329,16 @@
     if (!c) { $("status").textContent = "Geen verzamelingen gevonden."; return; }
 
     const z = normaal(staat.zoek);
-    const f = staat.filters[c.id] || {};
-    const filterAan = Object.values(f).some(Boolean);
-    let items = c.items.filter((it) => (!z || normaal(it.zoektekst || it.naam).includes(z)) && voldoet(it, f));
+    let items = c.items.filter((it) => !z || normaal(it.zoektekst || it.naam).includes(z));
     if (staat.sorteer === "nieuw") items = [...items].sort((a, b) => (b.toegevoegd || "").localeCompare(a.toegevoegd || ""));
     else items = [...items].sort((a, b) => a.naam.localeCompare(b.naam, "nl", { sensitivity: "base", numeric: true }));
 
-    $("status").textContent = (z || filterAan)
+    $("status").textContent = z
       ? `${items.length} van ${c.items.length} in ${c.naam}`
       : `${c.items.length} ${c.items.length === 1 ? "item" : "items"} in ${c.naam}`;
 
     if (!items.length) {
-      inhoud.append(el("div", { class: "niets", text: "Niets gevonden met deze zoekopdracht of filters." }));
+      inhoud.append(el("div", { class: "niets", text: "Niets gevonden voor deze zoekopdracht." }));
       return;
     }
     const raster = el("div", { class: "raster vorm-" + (c.vorm || "vierkant") });
@@ -483,7 +407,6 @@
       const vanHash = data.collecties.find((c) => "#" + c.slug === location.hash);
       staat.actief = (vanHash || data.collecties[0] || {}).id;
       tekenTabs();
-      tekenFilters(data.collecties.find((c) => c.id === staat.actief));
       tekenRaster();
       if (data.bijgewerkt) {
         const d = new Date(data.bijgewerkt);
