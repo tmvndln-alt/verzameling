@@ -1,7 +1,7 @@
 {
  "titel": "De verzameling van Tom",
  "ondertitel": "Platen, Stephen King en vondsten",
- "bijgewerkt": "2026-11-05T14:39:03+00:00",
+ "bijgewerkt": "2026-11-05T14:41:50+00:00",
  "collecties": [
   {
    "id": "01a18bce-3b9e-744d-bebf-d0201d07006b",
@@ -4844,7 +4844,60 @@
        "Staat Hoes",
        "Good"
       ]
-     ]
+     ],
+     "tracks": [
+      [
+       "A1",
+       "The Long Run",
+       "3:42"
+      ],
+      [
+       "A2",
+       "I Can't Tell You Why",
+       "4:56"
+      ],
+      [
+       "A3",
+       "In The City",
+       "3:46"
+      ],
+      [
+       "A4",
+       "The Disco Strangler",
+       "2:46"
+      ],
+      [
+       "A5",
+       "King Of Hollywood",
+       "6:28"
+      ],
+      [
+       "B1",
+       "Heartache Tonight",
+       "4:26"
+      ],
+      [
+       "B2",
+       "Those Shoes",
+       "4:56"
+      ],
+      [
+       "B3",
+       "Teenage Jail",
+       "3:44"
+      ],
+      [
+       "B4",
+       "The Greeks Don't Want No Freaks",
+       "2:20"
+      ],
+      [
+       "B5",
+       "The Sad Café",
+       "5:25"
+      ]
+     ],
+     "discogs": "https://www.discogs.com/release/379798-Eagles-The-Long-Run"
     },
     {
      "id": "01a188e7-1790-78fa-b866-7feb8290a07e",
@@ -5153,7 +5206,20 @@
        "Staat Hoes",
        "Good"
       ]
-     ]
+     ],
+     "tracks": [
+      [
+       "A",
+       "See Jungle! (Jungle Boy) (Remixed Version)",
+       ""
+      ],
+      [
+       "B",
+       "(I'm A) TV Savage",
+       ""
+      ]
+     ],
+     "discogs": "https://www.discogs.com/release/1141025-Bow-Wow-Wow-See-Jungle-Jungle-Boy"
     },
     {
      "id": "01a188e7-19f3-7013-8756-7ad364023be1",
@@ -5924,7 +5990,30 @@
        "Staat Hoes",
        "Good"
       ]
-     ]
+     ],
+     "tracks": [
+      [
+       "A1",
+       "Interrectuelen",
+       "2:52"
+      ],
+      [
+       "A2",
+       "Interimperen",
+       "5:40"
+      ],
+      [
+       "B1",
+       "Bij De Koningin",
+       "6:13"
+      ],
+      [
+       "B2",
+       "De Populaire Partijpotpourri",
+       "2:08"
+      ]
+     ],
+     "discogs": "https://www.discogs.com/release/876123-Koot-En-Bie-Gouden-Doden-De-Nagelaten-Tapes-Van-Jacobse-En-Van-Es"
     },
     {
      "id": "01a188e7-1fed-72f2-bc4f-d3d86ca8d2f9",
@@ -6211,7 +6300,50 @@
        "Staat Hoes",
        "Good"
       ]
-     ]
+     ],
+     "tracks": [
+      [
+       "A1",
+       "It's Time! (Chapter Three)",
+       "4:01"
+      ],
+      [
+       "A2",
+       "See Them Smile",
+       "3:25"
+      ],
+      [
+       "A3",
+       "Slow Motion",
+       "3:52"
+      ],
+      [
+       "A4",
+       "You're Not Alone",
+       "5:22"
+      ],
+      [
+       "B1",
+       "Take It Or Leave It",
+       "3:58"
+      ],
+      [
+       "B2",
+       "Images (Chapter One)",
+       "6:31"
+      ],
+      [
+       "B3",
+       "Hot To Cold",
+       "5:02"
+      ],
+      [
+       "B4",
+       "Mouse In A Maze",
+       "5:41"
+      ]
+     ],
+     "discogs": "https://www.discogs.com/release/783395-Saga-3-Images-At-Twilight"
     },
     {
      "id": "01a188e7-22d6-78fb-8277-b64bd200408e",
@@ -6253,7 +6385,55 @@
        "Staat Hoes",
        "Good"
       ]
-     ]
+     ],
+     "tracks": [
+      [
+       "A1",
+       "Hotel California",
+       "6:30"
+      ],
+      [
+       "A2",
+       "New Kid In Town",
+       "5:04"
+      ],
+      [
+       "A3",
+       "Life In The Fast Lane",
+       "4:46"
+      ],
+      [
+       "A4",
+       "Wasted Time",
+       "4:55"
+      ],
+      [
+       "B1",
+       "Wasted Time (Reprise)",
+       "1:22"
+      ],
+      [
+       "B2",
+       "Victim Of Love",
+       "4:11"
+      ],
+      [
+       "B3",
+       "Pretty Maids All In A Row",
+       "4:05"
+      ],
+      [
+       "B4",
+       "Try And Love Again",
+       "5:10"
+      ],
+      [
+       "B5",
+       "The Last Resort",
+       "7:25"
+      ]
+     ],
+     "discogs": "https://www.discogs.com/release/1934367-Eagles-Hotel-California"
     },
     {
      "id": "01a188e7-2372-7183-b78e-297aef65ca41",
@@ -6395,7 +6575,75 @@
        "Staat Hoes",
        "Good"
       ]
-     ]
+     ],
+     "tracks": [
+      [
+       "A1",
+       "Once Upon A Time In The West",
+       "3:35"
+      ],
+      [
+       "A2",
+       "As A Judgement",
+       "3:50"
+      ],
+      [
+       "A3",
+       "Farewell To Cheyenne",
+       "2:32"
+      ],
+      [
+       "A4",
+       "The Transgression",
+       "4:37"
+      ],
+      [
+       "A5",
+       "The First Tavern",
+       "1:32"
+      ],
+      [
+       "A6",
+       "The Second Tavern",
+       "1:30"
+      ],
+      [
+       "B1",
+       "Man With A Harmonica",
+       "3:25"
+      ],
+      [
+       "B2",
+       "A Dimly Lit Room",
+       "5:40"
+      ],
+      [
+       "B3",
+       "Bad Orchestra",
+       "2:20"
+      ],
+      [
+       "B4",
+       "The Man",
+       "1:00"
+      ],
+      [
+       "B5",
+       "Jill's America",
+       "2:45"
+      ],
+      [
+       "B6",
+       "Death Rattle",
+       "1:40"
+      ],
+      [
+       "B7",
+       "Finale",
+       "4:10"
+      ]
+     ],
+     "discogs": "https://www.discogs.com/release/7004027-Ennio-Morricone-Het-Gebeurde-In-Het-Westen"
     },
     {
      "id": "01a188e7-24bc-74e9-9f86-3bdbb433929a",
@@ -7078,7 +7326,55 @@
        "Staat Hoes",
        "Good"
       ]
-     ]
+     ],
+     "tracks": [
+      [
+       "A1",
+       "Stars",
+       "7:15"
+      ],
+      [
+       "A2",
+       "Up To The Limit",
+       "5:01"
+      ],
+      [
+       "A3",
+       "On The Road",
+       "4:55"
+      ],
+      [
+       "A4",
+       "Distant Early Warning (Live)",
+       "5:06"
+      ],
+      [
+       "B1",
+       "Heaven's On Fire (Live)",
+       "4:25"
+      ],
+      [
+       "B2",
+       "Can You See Me",
+       "2:33"
+      ],
+      [
+       "B3",
+       "Hungry For Heaven",
+       "5:45"
+      ],
+      [
+       "B4",
+       "Go For The Throat",
+       "4:30"
+      ],
+      [
+       "B5",
+       "The Zoo",
+       "6:17"
+      ]
+     ],
+     "discogs": "https://www.discogs.com/release/8743404-Hearn-Aid-Hearn-Aid"
     },
     {
      "id": "01a188e7-2a0d-7d67-b281-5538a1240f29",
@@ -7435,7 +7731,60 @@
        "Staat Hoes",
        "Good"
       ]
-     ]
+     ],
+     "tracks": [
+      [
+       "1",
+       " Five Fifteen",
+       "4:33"
+      ],
+      [
+       "2",
+       "Silver Spoon ",
+       "3:20"
+      ],
+      [
+       "3",
+       "Wolfman ",
+       "4:04"
+      ],
+      [
+       "4",
+       "Grand Old Town ",
+       "3:23"
+      ],
+      [
+       "5",
+       "Strangers Once ",
+       "3:59"
+      ],
+      [
+       "6",
+       "Sceneries ",
+       "3:49"
+      ],
+      [
+       "7",
+       "Roadside Epiphany ",
+       "4:20"
+      ],
+      [
+       "8",
+       " The Mansion ",
+       "2:58"
+      ],
+      [
+       "9",
+       " Fly ",
+       "3:28"
+      ],
+      [
+       "10",
+       " Eventide ",
+       "6:05"
+      ]
+     ],
+     "discogs": "https://www.discogs.com/release/11963942-Mother-Bass-Mother-Bass"
     },
     {
      "id": "01a188e7-2cf4-7338-878e-c0ec73db7553",
@@ -7947,7 +8296,55 @@
        "Staat Hoes",
        "Good"
       ]
-     ]
+     ],
+     "tracks": [
+      [
+       "A1",
+       "Behind The Gardens - Behind The Wall - Under The Tree",
+       "7:15"
+      ],
+      [
+       "A2",
+       "Pyramid - In The Wood - In The Bright Light",
+       "8:46"
+      ],
+      [
+       "B1",
+       "Micro - Macro",
+       "3:47"
+      ],
+      [
+       "B2",
+       "Skin And Skin",
+       "3:25"
+      ],
+      [
+       "B3",
+       "Moonlight, Wrapped Around Us",
+       "1:03"
+      ],
+      [
+       "B4",
+       "Lion And Sheep",
+       "3:56"
+      ],
+      [
+       "B5",
+       "Sunday",
+       "2:00"
+      ],
+      [
+       "B6",
+       "Afternoon",
+       "0:43"
+      ],
+      [
+       "B7",
+       "Hands And Clouds",
+       "2:19"
+      ]
+     ],
+     "discogs": "https://www.discogs.com/release/4950121-Andreas-Vollenweider-Behind-The-Gardens-Behind-The-Wall-Under-The-Tree"
     },
     {
      "id": "01a188e7-300e-77ab-88e1-583f2a754243",
@@ -8233,7 +8630,50 @@
        "Staat Hoes",
        "Good"
       ]
-     ]
+     ],
+     "tracks": [
+      [
+       "A",
+       "De Van Kooten & De Bie - Verhoren",
+       "22:56"
+      ],
+      [
+       "B1",
+       "Mooier Dan De Jouwe",
+       "3:23"
+      ],
+      [
+       "B2",
+       "Zo Vals Als Wat",
+       "3:45"
+      ],
+      [
+       "B3",
+       "Onze God Is De Beste",
+       "1:56"
+      ],
+      [
+       "B4",
+       "Weggewaaid",
+       "2:50"
+      ],
+      [
+       "B5",
+       "Ouwe Lullen Moeten Weg",
+       "2:20"
+      ],
+      [
+       "B6",
+       "Mooie Mensen In De Nacht",
+       "2:45"
+      ],
+      [
+       "B7",
+       "Ballen In Me Buik",
+       "2:40"
+      ]
+     ],
+     "discogs": "https://www.discogs.com/release/876148-Van-Kooten-De-Bie-Draaikonten-De-Zesde-Langspeelplaat-Van-Het-Simplisties-Verbond"
     },
     {
      "id": "01a188e7-332a-77a5-94f7-be7a59b7d504",
@@ -8564,7 +9004,50 @@
        "Staat Hoes",
        "Good"
       ]
-     ]
+     ],
+     "tracks": [
+      [
+       "A1",
+       "Bepaalde dingetjes",
+       "14:36"
+      ],
+      [
+       "A2",
+       "Doomed to Disco",
+       "4:44"
+      ],
+      [
+       "A3",
+       "De Eerste Ronde",
+       "11:12"
+      ],
+      [
+       "A4",
+       "Bie's",
+       "2:00"
+      ],
+      [
+       "B1",
+       "Tweede Ronde",
+       "6:38"
+      ],
+      [
+       "B2",
+       "Pappa rookt niet meer",
+       "4:10"
+      ],
+      [
+       "B3",
+       "De Voorlopige Aanslag 1981",
+       "9:44"
+      ],
+      [
+       "B4",
+       "De Tegenpartij",
+       "2:48"
+      ]
+     ],
+     "discogs": "https://www.discogs.com/release/36395623-Van-Kooten-De-Bie-Op-Hun-Pik-Getrapt"
     },
     {
      "id": "01a188e7-36f7-7a19-aa9c-e1308b29faed",
@@ -8811,7 +9294,70 @@
        "Staat Hoes",
        "Good"
       ]
-     ]
+     ],
+     "tracks": [
+      [
+       "A1",
+       "First Impressions",
+       "3:58"
+      ],
+      [
+       "A2",
+       "Acrobats",
+       "3:38"
+      ],
+      [
+       "A3",
+       "The Worker",
+       "3:33"
+      ],
+      [
+       "A4",
+       "Spiders",
+       "1:41"
+      ],
+      [
+       "A5",
+       "Remember Russia",
+       "3:32"
+      ],
+      [
+       "A6",
+       "The French Let Her",
+       "3:20"
+      ],
+      [
+       "B1",
+       "Lies",
+       "3:55"
+      ],
+      [
+       "B2",
+       "Wax Dolls",
+       "2:44"
+      ],
+      [
+       "B3",
+       "Headlines",
+       "3:22"
+      ],
+      [
+       "B4",
+       "Nice To Know",
+       "2:47"
+      ],
+      [
+       "B5",
+       "Billy And The Motorway Police",
+       "2:07"
+      ],
+      [
+       "B6",
+       "Lemmings",
+       "2:59"
+      ]
+     ],
+     "discogs": "https://www.discogs.com/release/13586908-Fischer-Z-Word-Salad"
     },
     {
      "id": "01a188e7-3916-7f0d-bf73-060b95ba6fcb",
@@ -8853,7 +9399,45 @@
        "Staat Hoes",
        "Good"
       ]
-     ]
+     ],
+     "tracks": [
+      [
+       "A1",
+       "A Dream Within A Dream",
+       "3:40"
+      ],
+      [
+       "A2",
+       "The Raven",
+       "4:00"
+      ],
+      [
+       "A3",
+       "The Tell-Tale Heart",
+       "4:37"
+      ],
+      [
+       "A4",
+       "The Cask Of Amontillado",
+       "4:27"
+      ],
+      [
+       "A5",
+       "(The System Of) Doctor Tarr And Professor Fether",
+       "4:14"
+      ],
+      [
+       "",
+       "The Fall Of The House Of Usher (Instrumental)",
+       "15:02"
+      ],
+      [
+       "B2",
+       "To One In Paradise",
+       "4:29"
+      ]
+     ],
+     "discogs": "https://www.discogs.com/release/460238-The-Alan-Parsons-Project-Tales-Of-Mystery-And-Imagination"
     },
     {
      "id": "01a188e7-39dc-7e52-859d-3ca0574fcfa0",
@@ -8895,7 +9479,20 @@
        "Staat Hoes",
        "Good"
       ]
-     ]
+     ],
+     "tracks": [
+      [
+       "1",
+       "Red Skies Over Paradise (Radio Edit)",
+       "3:49"
+      ],
+      [
+       "2",
+       "Red Skies Over Paradise (\"Boom Went London\"-Version",
+       "3:46"
+      ]
+     ],
+     "discogs": "https://www.discogs.com/release/2997944-Fischer-Z-Red-Skies-Over-Paradise"
     },
     {
      "id": "01a188e7-3aa5-72d6-b877-ad39f8976e81",
@@ -9987,7 +10584,40 @@
        "Staat Hoes",
        "Good"
       ]
-     ]
+     ],
+     "tracks": [
+      [
+       "A1",
+       "May Be A Price To Pay",
+       "4:52"
+      ],
+      [
+       "A2",
+       "Games People Play",
+       "4:17"
+      ],
+      [
+       "A3",
+       "Time",
+       "5:05"
+      ],
+      [
+       "A4",
+       "I Don't Wanna Go Home",
+       "4:54"
+      ],
+      [
+       "B1",
+       "The Gold Bug",
+       "4:28"
+      ],
+      [
+       "",
+       "The Turn Of A Friendly Card",
+       "16:19"
+      ]
+     ],
+     "discogs": "https://www.discogs.com/release/1306719-The-Alan-Parsons-Project-The-Turn-Of-A-Friendly-Card"
     },
     {
      "id": "01a188e7-446b-7501-9f08-81f2420c1c1e",
@@ -10484,7 +11114,75 @@
        "Staat Hoes",
        "Good"
       ]
-     ]
+     ],
+     "tracks": [
+      [
+       "A1",
+       "Alphasafe",
+       "3:57"
+      ],
+      [
+       "A2",
+       "Pappa's Mannetje",
+       "3:16"
+      ],
+      [
+       "A3",
+       "Bram Komt Terug",
+       "4:31"
+      ],
+      [
+       "A4",
+       "Goeie Peer",
+       "5:12"
+      ],
+      [
+       "A5",
+       "Nul Zes",
+       "5:48"
+      ],
+      [
+       "A6",
+       "De Commissie Klemtonen",
+       "3:57"
+      ],
+      [
+       "A7",
+       "Uit Vrije Wil",
+       "2:09"
+      ],
+      [
+       "B1",
+       "Uit Naastenliefde",
+       "4:47"
+      ],
+      [
+       "B2",
+       "Condome De Plaisance",
+       "4:13"
+      ],
+      [
+       "B3",
+       "Uw Purser",
+       "6:13"
+      ],
+      [
+       "B4",
+       "Radio Moorkop (Fragment Uit De Koos Koets Show)",
+       "3:32"
+      ],
+      [
+       "B5",
+       "Alles Zonder Met (Koos Koets Zingt!)",
+       "3:38"
+      ],
+      [
+       "B6",
+       "Tegen Twaalven",
+       "2:56"
+      ]
+     ],
+     "discogs": "https://www.discogs.com/release/1247214-Van-Kooten-De-Bie-Willen-Niet-Dood"
     },
     {
      "id": "01a188e7-48cd-73a9-ba37-3bd921bf97b4",
@@ -10621,7 +11319,60 @@
        "Staat Hoes",
        "Good"
       ]
-     ]
+     ],
+     "tracks": [
+      [
+       "A1",
+       "Eldorado Overture",
+       ""
+      ],
+      [
+       "A2",
+       "Can't Get It Out Of My Head",
+       ""
+      ],
+      [
+       "A3",
+       "Boy Blue",
+       ""
+      ],
+      [
+       "A4",
+       "Larado Tornado",
+       ""
+      ],
+      [
+       "A5",
+       "Poor Boy (The Greenwood)",
+       ""
+      ],
+      [
+       "B6",
+       "Mister Kingdom",
+       ""
+      ],
+      [
+       "B7",
+       "Nobody's Child",
+       ""
+      ],
+      [
+       "B8",
+       "Illusions In G Major",
+       ""
+      ],
+      [
+       "B9",
+       "Eldorado",
+       ""
+      ],
+      [
+       "B10",
+       "Eldorado Final",
+       ""
+      ]
+     ],
+     "discogs": "https://www.discogs.com/release/2298275-Electric-Light-Orchestra-Eldorado"
     },
     {
      "id": "01a188e7-4a07-78e6-a864-26c6d7d9bab0",
@@ -11328,7 +12079,55 @@
        "Staat Hoes",
        "Good"
       ]
-     ]
+     ],
+     "tracks": [
+      [
+       "A1",
+       "Shine A Little Love",
+       "4:42"
+      ],
+      [
+       "A2",
+       "Confusion",
+       "3:42"
+      ],
+      [
+       "A3",
+       "Need Her Love",
+       "5:09"
+      ],
+      [
+       "A4",
+       "The Diary Of Horace Wimp",
+       "4:17"
+      ],
+      [
+       "B1",
+       "Last Train To London",
+       "4:31"
+      ],
+      [
+       "B2",
+       "Midnight Blue",
+       "4:20"
+      ],
+      [
+       "B3",
+       "On The Run",
+       "3:56"
+      ],
+      [
+       "B4",
+       "Wishing",
+       "4:14"
+      ],
+      [
+       "B5",
+       "Don't Bring Me Down",
+       "4:08"
+      ]
+     ],
+     "discogs": "https://www.discogs.com/release/14217521-Electric-Light-Orchestra-Discovery"
     },
     {
      "id": "01a188e7-4ef4-776b-8e4b-a36288373883",
@@ -11964,7 +12763,40 @@
        "Staat Hoes",
        "Good"
       ]
-     ]
+     ],
+     "tracks": [
+      [
+       "A1",
+       "One Of These Days",
+       ""
+      ],
+      [
+       "A2",
+       "A Pillow Of Winds",
+       "11:00"
+      ],
+      [
+       "A3",
+       "Fearless",
+       "6:01"
+      ],
+      [
+       "A4",
+       "San Tropez",
+       "3:37"
+      ],
+      [
+       "A5",
+       "Seamus",
+       "2:10"
+      ],
+      [
+       "B1",
+       "Echoes",
+       "23:22"
+      ]
+     ],
+     "discogs": "https://www.discogs.com/release/7345218-Pink-Floyd-Meddle"
     },
     {
      "id": "01a188e7-53f7-7b1c-b53f-802c7e24eef4",
@@ -12841,7 +13673,105 @@
        "Staat Hoes",
        "Good"
       ]
-     ]
+     ],
+     "tracks": [
+      [
+       "A1",
+       "Mrs. Robinson",
+       "3:01"
+      ],
+      [
+       "A2",
+       "Homeward Bound",
+       "3:07"
+      ],
+      [
+       "A3",
+       "America",
+       "4:33"
+      ],
+      [
+       "A4",
+       "Me And Julio Down By The Schoolyard",
+       "3:09"
+      ],
+      [
+       "A5",
+       "Scarborough Fair",
+       "3:34"
+      ],
+      [
+       "B1",
+       "April Come She Will",
+       "2:18"
+      ],
+      [
+       "B2",
+       "Wake Up Little Susie",
+       "2:13"
+      ],
+      [
+       "B3",
+       "Still Crazy After All These Years",
+       "3:25"
+      ],
+      [
+       "B4",
+       "American Tune",
+       "4:11"
+      ],
+      [
+       "B5",
+       "Late In The Evening",
+       "3:57"
+      ],
+      [
+       "C1",
+       "Slip Slidin' Away",
+       "4:32"
+      ],
+      [
+       "C2",
+       "A Heart In New York",
+       "2:23"
+      ],
+      [
+       "C3",
+       "Kodachrome / Mabellene",
+       "5:39"
+      ],
+      [
+       "C4",
+       "Bridge Over Troubled Water",
+       "4:35"
+      ],
+      [
+       "D1",
+       "Fifty Ways To Leave Your Lover",
+       "4:13"
+      ],
+      [
+       "D2",
+       "The Boxer",
+       "4:45"
+      ],
+      [
+       "D3",
+       "Old Friends",
+       "2:46"
+      ],
+      [
+       "D4",
+       "The 59th Street Bridge Song (Feelin' Groovy)",
+       "1:53"
+      ],
+      [
+       "D5",
+       "The Sounds Of Silence",
+       "3:50"
+      ]
+     ],
+     "discogs": "https://www.discogs.com/release/1274592-Simon-Garfunkel-The-Concert-In-Central-Park"
     },
     {
      "id": "01a188e7-5a6f-7356-bb1d-3e692fe68ef3",
@@ -14455,7 +15385,80 @@
        "Staat Hoes",
        "Good"
       ]
-     ]
+     ],
+     "tracks": [
+      [
+       "A1",
+       "Turn To Stone",
+       "3:48"
+      ],
+      [
+       "A2",
+       "It's Over",
+       "4:08"
+      ],
+      [
+       "A3",
+       "Sweet Talkin' Woman",
+       "3:48"
+      ],
+      [
+       "A4",
+       "Across The Border",
+       "3:52"
+      ],
+      [
+       "B1",
+       "Night In The City",
+       "4:02"
+      ],
+      [
+       "B2",
+       "Starlight",
+       "4:30"
+      ],
+      [
+       "B3",
+       "Jungle",
+       "3:51"
+      ],
+      [
+       "B4",
+       "Believe Me Now",
+       "1:21"
+      ],
+      [
+       "B5",
+       "Steppin' Out",
+       "4:38"
+      ],
+      [
+       "",
+       "Concerto For A Rainy Day",
+       ""
+      ],
+      [
+       "D1",
+       "Sweet Is The Night",
+       "3:26"
+      ],
+      [
+       "D2",
+       "The Whale",
+       "5:05"
+      ],
+      [
+       "D3",
+       "Birmingham Blues",
+       "4:21"
+      ],
+      [
+       "D4",
+       "Wild West Hero",
+       "4:40"
+      ]
+     ],
+     "discogs": "https://www.discogs.com/release/6461902-Electric-Light-Orchestra-Out-Of-The-Blue"
     },
     {
      "id": "01a188e7-69f4-7566-925e-a8e2afb8f712",
@@ -14497,7 +15500,20 @@
        "Staat Hoes",
        "Good"
       ]
-     ]
+     ],
+     "tracks": [
+      [
+       "A",
+       "Xanadu (Live)",
+       "3:22"
+      ],
+      [
+       "B",
+       "Don't Bring Me Down (Live)",
+       "4:14"
+      ]
+     ],
+     "discogs": "https://www.discogs.com/release/12940236-Electric-Light-Orchestra-Xanadu-Live"
     },
     {
      "id": "01a188e7-6aae-72e2-bced-706b6c0971b6",
@@ -14539,7 +15555,60 @@
        "Staat Hoes",
        "Good"
       ]
-     ]
+     ],
+     "tracks": [
+      [
+       "A1",
+       "Room Service",
+       "3:41"
+      ],
+      [
+       "A2",
+       "So Long",
+       "4:59"
+      ],
+      [
+       "A3",
+       "Crazy Girl",
+       "4:26"
+      ],
+      [
+       "A4",
+       "No Right",
+       "2:36"
+      ],
+      [
+       "A5",
+       "Going Deaf For A Living",
+       "3:31"
+      ],
+      [
+       "B1",
+       "Pick Up / Slip Up",
+       "2:37"
+      ],
+      [
+       "B2",
+       "Crank",
+       "3:06"
+      ],
+      [
+       "B3",
+       "Haters",
+       "4:07"
+      ],
+      [
+       "B4",
+       "Four Minutes In Durham (With You)",
+       "4:00"
+      ],
+      [
+       "B5",
+       "Limbo",
+       "2:14"
+      ]
+     ],
+     "discogs": "https://www.discogs.com/release/6479354-Fischer-Z-Going-Deaf-For-A-Living"
     },
     {
      "id": "01a188e7-6b41-7163-ab77-5ee1b4d8a434",
@@ -15072,7 +16141,55 @@
        "Staat Hoes",
        "Good"
       ]
-     ]
+     ],
+     "tracks": [
+      [
+       "A1",
+       "Shine A Little Love",
+       "4:42"
+      ],
+      [
+       "A2",
+       "Confusion",
+       "3:42"
+      ],
+      [
+       "A3",
+       "Need Her Love",
+       "5:09"
+      ],
+      [
+       "A4",
+       "The Diary Of Horace Wimp",
+       "4:17"
+      ],
+      [
+       "B1",
+       "Last Train To London",
+       "4:31"
+      ],
+      [
+       "B2",
+       "Midnight Blue",
+       "4:20"
+      ],
+      [
+       "B3",
+       "On The Run",
+       "3:56"
+      ],
+      [
+       "B4",
+       "Wishing",
+       "4:14"
+      ],
+      [
+       "B5",
+       "Don't Bring Me Down",
+       "4:08"
+      ]
+     ],
+     "discogs": "https://www.discogs.com/release/14217521-Electric-Light-Orchestra-Discovery"
     },
     {
      "id": "01a188e7-704d-7407-8ff4-0f4c05665f4f",
