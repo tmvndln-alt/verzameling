@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>De verzameling van Tom</title>
+<meta name="description" content="Platen, Stephen King-boeken en vondsten">
+<style>
+  :root {
+    --papier: #f3eee4;
+    --papier-2: #e9e2d4;
+    --inkt: #1f1b16;
+    --inkt-zacht: #6b6257;
+    --accent: #b8471b;
+    --lijn: #d8cfbf;
+    --kaart: #fffdf8;
+    --schaduw: 0 1px 2px rgba(40,30,20,.12), 0 6px 16px rgba(40,30,20,.10);
+    --schaduw-hoog: 0 2px 4px rgba(40,30,20,.14), 0 14px 30px rgba(40,30,20,.18);
+    --serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body {
+    background: var(--papier);
+    color: var(--inkt);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.45;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  header.kop {
+    padding: 40px 24px 8px;
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+  .kop h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(30px, 5vw, 46px);
+    letter-spacing: -0.01em;
+    margin: 0;
+  }
+  .kop p { margin: 6px 0 0; color: var(--inkt-zacht); }
+
+  nav.tabs {
+    position: sticky; top: 0; z-index: 10;
+    background: color-mix(in srgb, var(--papier) 92%, transparent);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--lijn);
+  }
+  .tabs-binnen {
+    max-width: 1280px; margin: 0 auto;
+    padding: 12px 24px;
+    display: flex; flex-wrap: wrap; gap: 10px 18px; align-items: center;
+  }
+  .tab-lijst { display: flex; gap: 6px; flex-wrap: wrap; }
+  .tab {
+    appearance: none; border: 1px solid var(--lijn); background: var(--kaart);
+    color: var(--inkt); font: inherit; font-size: 15px;
+    padding: 7px 14px; border-radius: 999px; cursor: pointer;
+    display: inline-flex; gap: 8px; align-items: baseline;
+  }
+  .tab .aantal { color: var(--inkt-zacht); font-size: 13px; font-variant-numeric: tabular-nums; }
+  .tab[aria-selected="true"] { background: var(--inkt); color: var(--papier); border-color: var(--inkt); }
+  .tab[aria-selected="true"] .aantal { color: #cfc6b8; }
+  .tab:focus-visible, .zoek:focus-visible, .sorteer:focus-visible, .item:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  .bediening { display: flex; gap: 8px; margin-left: auto; flex: 1 1 280px; justify-content: flex-end; }
+  .zoek {
+    flex: 1 1 200px; max-width: 340px;
+    font: inherit; font-size: 15px;
+    padding: 7px 12px; border-radius: 8px;
+    border: 1px solid var(--lijn); background: var(--kaart); color: var(--inkt);
+  }
+  .sorteer {
+    font: inherit; font-size: 15px;
+    padding: 7px 10px; border-radius: 8px;
+    border: 1px solid var(--lijn); background: var(--kaart); color: var(--inkt);
+  }
+
+  main { max-width: 1280px; margin: 0 auto; padding: 24px 24px 64px; }
+  .status { color: var(--inkt-zacht); font-size: 14px; margin: 0 0 18px; }
+
+  .raster {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(168px, 1fr));
+    gap: 30px 22px;
+  }
+  @media (max-width: 520px) {
+    .tab-lijst { flex-wrap: nowrap; overflow-x: auto; width: 100%; scrollbar-width: none; }
+    .tab-lijst::-webkit-scrollbar { display: none; }
+    .tab { flex: none; }
+    .bediening { flex: 1 1 100%; margin-left: 0; min-width: 0; }
+    .zoek { flex: 1 1 0; width: 0; min-width: 0; max-width: none; }
+    .sorteer { flex: 0 0 auto; max-width: 48%; }
+    .raster { grid-template-columns: repeat(2, 1fr); gap: 22px 14px; }
+    header.kop { padding: 28px 16px 4px; }
+    .tabs-binnen, main { padding-left: 16px; padding-right: 16px; }
+  }
+
+  .item {
+    appearance: none; border: 0; background: none; padding: 0; margin: 0;
+    text-align: left; font: inherit; color: inherit; cursor: pointer;
+    display: block; width: 100%;
+  }
+  .hoes {
+    position: relative;
+    aspect-ratio: 1 / 1;
+  }
+  .vorm-boek .hoes { aspect-ratio: 2 / 3; }
+  .hoes .beeld {
+    position: absolute; inset: 0;
+    border-radius: 3px;
+    overflow: hidden;
+    background: var(--papier-2);
+    box-shadow: var(--schaduw);
+    transition: transform .25s ease, box-shadow .25s ease;
+    z-index: 2;
+  }
+  .vorm-boek .hoes .beeld { border-radius: 2px 4px 4px 2px; }
+  .vorm-boek .hoes .beeld::after {
+    content: ""; position: absolute; top: 0; bottom: 0; left: 0; width: 7px;
+    background: linear-gradient(90deg, rgba(0,0,0,.22), rgba(0,0,0,0));
+  }
+  .hoes img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+  /* Plaat die uit de hoes schuift */
+  .vorm-vierkant .hoes.plaat::before {
+    content: ""; position: absolute; top: 4%; bottom: 4%; right: 4%;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    background:
+      radial-gradient(circle, var(--accent) 0 13%, #111 13.5% 15%, transparent 15.5%),
+      repeating-radial-gradient(circle, #151515 0 2px, #222 2px 3px);
+    transition: transform .3s ease;
+    z-index: 1;
+  }
+  .item:hover .hoes .beeld, .item:focus-visible .hoes .beeld { box-shadow: var(--schaduw-hoog); transform: translateY(-3px); }
+  .item:hover .vorm-vierkant .hoes.plaat::before,
+  .vorm-vierkant .item:hover .hoes.plaat::before,
+  .vorm-vierkant .item:focus-visible .hoes.plaat::before { transform: translateX(26%); }
+
+  .leeg-beeld {
+    position: absolute; inset: 0;
+    display: flex; flex-direction: column; justify-content: flex-end;
+    padding: 12px; color: #fff;
+    font-family: var(--serif); font-size: 17px; line-height: 1.15;
+  }
+  .leeg-beeld small { font-family: var(--sans); font-size: 12px; opacity: .8; margin-top: 4px; }
+
+  .onderschrift { margin-top: 10px; }
+  .titel {
+    font-weight: 600; font-size: 14.5px; line-height: 1.3;
+    display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+  }
+  .sub { color: var(--inkt-zacht); font-size: 13.5px; margin-top: 2px;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+  .niets { padding: 60px 0; text-align: center; color: var(--inkt-zacht); }
+
+  /* Detailvenster */
+  dialog.detail {
+    border: 0; padding: 0; border-radius: 10px;
+    width: min(880px, calc(100vw - 32px));
+    max-height: calc(100vh - 48px);
+    background: var(--kaart); color: var(--inkt);
+    box-shadow: 0 30px 80px rgba(0,0,0,.35);
+  }
+  dialog.detail::backdrop { background: rgba(25,20,15,.55); }
+  .detail-binnen { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); }
+  @media (max-width: 680px) { .detail-binnen { grid-template-columns: 1fr; } }
+  .detail-beeld { background: var(--papier-2); position: relative; }
+  .detail-beeld .hoes { aspect-ratio: auto; height: 100%; min-height: 280px; }
+  .detail-beeld img { width: 100%; height: 100%; object-fit: contain; display: block; max-height: 70vh; }
+  .detail-beeld .leeg-beeld { position: relative; min-height: 320px; font-size: 26px; padding: 24px; }
+  .detail-tekst { padding: 26px 28px 28px; overflow: auto; max-height: calc(100vh - 48px); }
+  .detail-tekst h2 { font-family: var(--serif); font-weight: 600; font-size: 26px; line-height: 1.15; margin: 0 0 4px; }
+  .detail-tekst .detail-sub { color: var(--inkt-zacht); margin: 0 0 18px; }
+  .velden { display: grid; grid-template-columns: max-content 1fr; gap: 8px 18px; margin: 0; font-size: 15px; }
+  .velden dt { color: var(--inkt-zacht); }
+  .velden dd { margin: 0; overflow-wrap: anywhere; }
+  .velden a { color: var(--accent); }
+  .sluit {
+    position: absolute; top: 10px; right: 10px; z-index: 3;
+    width: 36px; height: 36px; border-radius: 50%;
+    border: 0; background: rgba(255,253,248,.92); color: var(--inkt);
+    font-size: 22px; line-height: 1; cursor: pointer; box-shadow: var(--schaduw);
+  }
+
+  footer { max-width: 1280px; margin: 0 auto; padding: 0 24px 40px; color: var(--inkt-zacht); font-size: 13px; }
+</style>
+</head>
+<body>
+
+<header class="kop">
+  <h1 id="sitetitel">De verzameling van Tom</h1>
+  <p id="ondertitel">Platen, Stephen King en vondsten</p>
+</header>
+
+<nav class="tabs" aria-label="Verzamelingen">
+  <div class="tabs-binnen">
+    <div class="tab-lijst" role="tablist" id="tabs"></div>
+    <div class="bediening">
+      <input class="zoek" id="zoek" type="search" placeholder="Zoeken…" aria-label="Zoeken">
+      <select class="sorteer" id="sorteer" aria-label="Sorteren">
+        <option value="naam">A–Z</option>
+        <option value="nieuw">Laatst toegevoegd</option>
+      </select>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <p class="status" id="status">Laden…</p>
+  <div id="inhoud"></div>
+</main>
+
+<footer id="voet"></footer>
+
+<dialog class="detail" id="detail">
+  <button class="sluit" id="sluit" aria-label="Sluiten">×</button>
+  <div class="detail-binnen">
+    <div class="detail-beeld" id="detail-beeld"></div>
+    <div class="detail-tekst">
+      <h2 id="detail-titel"></h2>
+      <p class="detail-sub" id="detail-sub"></p>
+      <dl class="velden" id="detail-velden"></dl>
+    </div>
+  </div>
+</dialog>
+
+<script>
+(() => {
+  const $ = (id) => document.getElementById(id);
+  const staat = { data: null, actief: null, zoek: "", sorteer: "naam" };
+  const kleuren = ["#7a3b2e", "#2f4f4f", "#5b4a7a", "#8a6a2f", "#3d5a3a", "#6a2f4f", "#2f4a6a", "#7a5a3b"];
+
+  function kleurVoor(tekst) {
+    let h = 0;
+    for (const c of tekst) h = (h * 31 + c.charCodeAt(0)) >>> 0;
+    return kleuren[h % kleuren.length];
+  }
+  function el(tag, attrs = {}, ...kinderen) {
+    const e = document.createElement(tag);
+    for (const [k, v] of Object.entries(attrs)) {
+      if (k === "class") e.className = v;
+      else if (k === "text") e.textContent = v;
+      else e.setAttribute(k, v);
+    }
+    for (const k of kinderen) if (k) e.append(k);
+    return e;
+  }
+  function normaal(s) {
+    return (s || "").toString().toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "");
+  }
+  function subregel(item) {
+    return item.sub || (item.velden && item.velden.length ? item.velden[0][1] : "") || item.groep || "";
+  }
+
+  function beeldVoor(item, groot) {
+    const hoes = el("div", { class: "hoes" });
+    const beeld = el("div", { class: "beeld" });
+    if (item.cover) {
+      const img = el("img", { src: item.cover, alt: item.naam, loading: groot ? "eager" : "lazy", decoding: "async" });
+      img.addEventListener("error", () => { img.replaceWith(leegBeeld(item)); });
+      beeld.append(img);
+    } else {
+      beeld.append(leegBeeld(item));
+    }
+    hoes.append(beeld);
+    return hoes;
+  }
+  function leegBeeld(item) {
+    const d = el("div", { class: "leeg-beeld" });
+    d.style.background = `linear-gradient(160deg, ${kleurVoor(item.naam)}, #1f1b16)`;
+    d.append(document.createTextNode(item.naam));
+    const s = subregel(item);
+    if (s) d.append(el("small", { text: s }));
+    return d;
+  }
+
+  function tekenTabs() {
+    const lijst = $("tabs");
+    lijst.replaceChildren();
+    for (const c of staat.data.collecties) {
+      const knop = el("button", {
+        class: "tab", role: "tab", type: "button",
+        "aria-selected": String(c.id === staat.actief)
+      }, document.createTextNode(c.naam), el("span", { class: "aantal", text: c.items.length }));
+      knop.addEventListener("click", () => kies(c.id));
+      lijst.append(knop);
+    }
+  }
+
+  function kies(id) {
+    staat.actief = id;
+    const c = staat.data.collecties.find((x) => x.id === id);
+    if (c) history.replaceState(null, "", "#" + c.slug);
+    tekenTabs();
+    tekenRaster();
+    window.scrollTo({ top: 0 });
+  }
+
+  function tekenRaster() {
+    const c = staat.data.collecties.find((x) => x.id === staat.actief);
+    const inhoud = $("inhoud");
+    inhoud.replaceChildren();
+    if (!c) { $("status").textContent = "Geen verzamelingen gevonden."; return; }
+
+    const z = normaal(staat.zoek);
+    let items = c.items.filter((it) => !z || normaal(it.zoektekst || it.naam).includes(z));
+    if (staat.sorteer === "nieuw") items = [...items].sort((a, b) => (b.toegevoegd || "").localeCompare(a.toegevoegd || ""));
+    else items = [...items].sort((a, b) => a.naam.localeCompare(b.naam, "nl", { sensitivity: "base", numeric: true }));
+
+    $("status").textContent = z
+      ? `${items.length} van ${c.items.length} in ${c.naam}`
+      : `${c.items.length} ${c.items.length === 1 ? "item" : "items"} in ${c.naam}`;
+
+    if (!items.length) {
+      inhoud.append(el("div", { class: "niets", text: "Niets gevonden voor deze zoekopdracht." }));
+      return;
+    }
+    const raster = el("div", { class: "raster vorm-" + (c.vorm || "vierkant") });
+    const frag = document.createDocumentFragment();
+    for (const it of items) {
+      const knop = el("button", { class: "item", type: "button", "aria-label": it.naam });
+      const hoes = beeldVoor(it, false);
+      if ((c.vorm || "vierkant") === "vierkant" && c.plaat) hoes.classList.add("plaat");
+      knop.append(hoes, el("div", { class: "onderschrift" },
+        el("div", { class: "titel", text: it.naam }),
+        subregel(it) ? el("div", { class: "sub", text: subregel(it) }) : null));
+      knop.addEventListener("click", () => toon(it, c));
+      frag.append(knop);
+    }
+    raster.append(frag);
+    inhoud.append(raster);
+  }
+
+  function toon(item, c) {
+    const beeld = $("detail-beeld");
+    beeld.replaceChildren(beeldVoor(item, true));
+    $("detail-titel").textContent = item.naam;
+    $("detail-sub").textContent = [c.naam, item.groep].filter(Boolean).join(" · ");
+    const dl = $("detail-velden");
+    dl.replaceChildren();
+    for (const [label, waarde] of item.velden || []) {
+      const dd = el("dd");
+      if (/^https?:\/\//.test(waarde)) dd.append(el("a", { href: waarde, target: "_blank", rel: "noopener", text: "Link" }));
+      else dd.textContent = waarde;
+      dl.append(el("dt", { text: label }), dd);
+    }
+    $("detail").showModal();
+  }
+
+  $("sluit").addEventListener("click", () => $("detail").close());
+  $("detail").addEventListener("click", (e) => { if (e.target === $("detail")) $("detail").close(); });
+  $("zoek").addEventListener("input", (e) => { staat.zoek = e.target.value; tekenRaster(); });
+  $("sorteer").addEventListener("change", (e) => { staat.sorteer = e.target.value; tekenRaster(); });
+
+  fetch("data.json", { cache: "no-cache" })
+    .then((r) => { if (!r.ok) throw new Error(r.status); return r.json(); })
+    .then((data) => {
+      staat.data = data;
+      if (data.titel) { $("sitetitel").textContent = data.titel; document.title = data.titel; }
+      if (data.ondertitel) $("ondertitel").textContent = data.ondertitel;
+      for (const c of data.collecties) {
+        for (const it of c.items) {
+          it.zoektekst = [it.naam, it.groep, ...(it.velden || []).map((v) => v[1])].join(" ");
+        }
+      }
+      const vanHash = data.collecties.find((c) => "#" + c.slug === location.hash);
+      staat.actief = (vanHash || data.collecties[0] || {}).id;
+      tekenTabs();
+      tekenRaster();
+      if (data.bijgewerkt) {
+        const d = new Date(data.bijgewerkt);
+        $("voet").textContent = "Bijgewerkt op " + d.toLocaleDateString("nl-NL", { day: "numeric", month: "long", year: "numeric" });
+      }
+    })
+    .catch(() => { $("status").textContent = "De verzameling kon niet worden geladen."; });
+})();
+</script>
+</body>
+</html>
