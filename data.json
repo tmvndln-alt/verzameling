@@ -1,7 +1,7 @@
 {
- "titel": "De verzameling van Tom",
+ "titel": "De verzamelingen van Tom en Gerie",
  "ondertitel": "Platen, Stephen King en vondsten",
- "bijgewerkt": "2026-11-06T08:34:34+00:00",
+ "bijgewerkt": "2026-11-06T08:52:44+00:00",
  "collecties": [
   {
    "id": "01a18bce-3b9e-744d-bebf-d0201d07006b",
@@ -14087,6 +14087,10 @@
       [
        "Staat Hoes",
        "Good"
+      ],
+      [
+       "Inventarisnummer",
+       "PL-0105"
       ]
      ],
      "tracks": [
