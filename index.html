@@ -219,6 +219,34 @@
   }
 
   footer { max-width: 1280px; margin: 0 auto; padding: 0 24px 40px; color: var(--inkt-zacht); font-size: 13px; }
+
+  /* ---------- TV-weergave (?tv=1) ---------- */
+  body.tv { font-size: 20px; }
+  body.tv header.kop { padding-top: 36px; max-width: none; padding-left: 56px; padding-right: 56px; }
+  body.tv .kop h1 { font-size: 52px; }
+  body.tv .tabs-binnen, body.tv main, body.tv footer { max-width: none; padding-left: 56px; padding-right: 56px; }
+  body.tv .bediening { display: none; }
+  body.tv .tab { font-size: 22px; padding: 10px 22px; }
+  body.tv .raster { grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 40px 30px; }
+  body.tv .titel { font-size: 20px; }
+  body.tv .sub { font-size: 18px; }
+  body.tv .status { font-size: 18px; }
+  body.tv :focus { outline: none; }
+  body.tv .tab:focus { box-shadow: 0 0 0 4px var(--accent); }
+  body.tv .item:focus .hoes .beeld { box-shadow: 0 0 0 5px var(--accent), var(--schaduw-hoog); transform: scale(1.06); }
+  body.tv .item:focus .titel { color: var(--accent); }
+  body.tv .vorm-vierkant .item:focus .hoes.plaat::before { transform: translateX(26%) scale(1.06); }
+  body.tv dialog.detail { width: min(1500px, calc(100vw - 80px)); max-height: calc(100vh - 60px); }
+  body.tv .detail-tekst { padding: 40px 44px; max-height: calc(100vh - 60px); }
+  body.tv .detail-tekst h2 { font-size: 40px; }
+  body.tv .velden, body.tv .tracks { font-size: 21px; }
+  body.tv .tracks-kop { font-size: 26px; }
+  body.tv .luister a { font-size: 19px; padding: 12px 20px; }
+  body.tv .luister a:focus, body.tv .sluit:focus { box-shadow: 0 0 0 4px var(--inkt); }
+  body.tv .sluit { width: 52px; height: 52px; font-size: 30px; }
+  body.tv .tv-hint { display: block; }
+  body.tv .item { scroll-margin-top: 130px; scroll-margin-bottom: 40px; }
+  .tv-hint { display: none; color: var(--inkt-zacht); font-size: 16px; margin-top: 18px; }
 </style>
 </head>
 <body>
@@ -257,6 +285,7 @@
       <p class="detail-sub" id="detail-sub"></p>
       <dl class="velden" id="detail-velden"></dl>
       <div id="detail-tracks"></div>
+      <p class="tv-hint">Pijltjes: bladeren · Terug: sluiten</p>
     </div>
   </div>
 </dialog>
@@ -331,6 +360,7 @@
     tekenTabs();
     tekenRaster();
     window.scrollTo({ top: 0 });
+    if (tv) { const t = document.querySelector('.tab[aria-selected="true"]'); if (t) t.focus({ preventScroll: true }); }
   }
 
   function tekenRaster() {
@@ -415,9 +445,79 @@
           el("a", { href: item.discogs, target: "_blank", rel: "noopener", text: "Discogs" })));
       }
     }
+    staat.terugFocus = document.activeElement;
     $("detail").showModal();
+    if (tv) {
+      history.pushState({ detail: true }, "");
+      const eerste = $("detail").querySelector(".luister a") || $("sluit");
+      eerste.focus({ preventScroll: true });
+      document.querySelector(".detail-tekst").scrollTop = 0;
+    }
   }
 
+
+  // ---------- TV-weergave ----------
+  const tv = (() => {
+    try {
+      const q = new URLSearchParams(location.search).get("tv");
+      if (q === "1") localStorage.setItem("tv", "1");
+      if (q === "0") localStorage.removeItem("tv");
+      return q === "1" || localStorage.getItem("tv") === "1";
+    } catch (e) { return new URLSearchParams(location.search).get("tv") === "1"; }
+  })();
+  if (tv) document.body.classList.add("tv");
+
+  function focusbaar() {
+    const binnen = $("detail").open ? $("detail") : document;
+    return [...binnen.querySelectorAll(".tab, .item, .luister a, .sluit, .velden a, .bron a")]
+      .filter((e) => e.offsetParent !== null && (!$("detail").open || $("detail").contains(e)));
+  }
+  function stap(richting) {
+    const huidig = document.activeElement;
+    const lijst = focusbaar();
+    if (!lijst.length) return false;
+    if (!lijst.includes(huidig)) { lijst[0].focus(); lijst[0].scrollIntoView({ block: "nearest" }); return true; }
+    const a = huidig.getBoundingClientRect();
+    const ax = a.left + a.width / 2, ay = a.top + a.height / 2;
+    let beste = null, bd = Infinity;
+    for (const e of lijst) {
+      if (e === huidig) continue;
+      const b = e.getBoundingClientRect();
+      const bx = b.left + b.width / 2, by = b.top + b.height / 2;
+      const dx = bx - ax, dy = by - ay;
+      const ok = richting === "ArrowRight" ? dx > 4 : richting === "ArrowLeft" ? dx < -4 : richting === "ArrowDown" ? dy > 4 : dy < -4;
+      if (!ok) continue;
+      const hoofd = richting === "ArrowRight" || richting === "ArrowLeft" ? Math.abs(dx) : Math.abs(dy);
+      const zij = richting === "ArrowRight" || richting === "ArrowLeft" ? Math.abs(dy) : Math.abs(dx);
+      const d = hoofd + zij * 2.5;
+      if (d < bd) { bd = d; beste = e; }
+    }
+    if (beste) {
+      beste.focus({ preventScroll: true });
+      beste.scrollIntoView({ block: "nearest", inline: "nearest", behavior: "smooth" });
+      if (beste.classList.contains("tab")) beste.click();
+      return true;
+    }
+    return false;
+  }
+  if (tv) {
+    document.addEventListener("keydown", (e) => {
+      if (!["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].includes(e.key)) return;
+      if (document.activeElement && document.activeElement.tagName === "SELECT") return;
+      e.preventDefault();
+      if (!stap(e.key) && $("detail").open && (e.key === "ArrowDown" || e.key === "ArrowUp")) {
+        document.querySelector(".detail-tekst").scrollBy({ top: e.key === "ArrowDown" ? 220 : -220, behavior: "smooth" });
+      } else if (!$("detail").open && (e.key === "ArrowDown" || e.key === "ArrowUp") && !document.activeElement.classList.contains("item")) {
+        window.scrollBy({ top: e.key === "ArrowDown" ? 300 : -300, behavior: "smooth" });
+      }
+    }, true);
+    // Terugknop van de afstandsbediening sluit het detailvenster
+    window.addEventListener("popstate", () => { if ($("detail").open) $("detail").close(); });
+    $("detail").addEventListener("close", () => {
+      if (history.state && history.state.detail) history.back();
+      if (staat.terugFocus) staat.terugFocus.focus({ preventScroll: true });
+    });
+  }
   $("sluit").addEventListener("click", () => $("detail").close());
   $("detail").addEventListener("click", (e) => { if (e.target === $("detail")) $("detail").close(); });
   $("zoek").addEventListener("input", (e) => { staat.zoek = e.target.value; tekenRaster(); });
@@ -438,6 +538,7 @@
       staat.actief = (vanHash || data.collecties[0] || {}).id;
       tekenTabs();
       tekenRaster();
+      if (tv) { const eerste = document.querySelector(".item"); if (eerste) eerste.focus({ preventScroll: true }); }
       if (data.bijgewerkt) {
         const d = new Date(data.bijgewerkt);
         $("voet").textContent = "Bijgewerkt op " + d.toLocaleDateString("nl-NL", { day: "numeric", month: "long", year: "numeric" });
