@@ -1,7 +1,7 @@
 {
  "titel": "De verzamelingen van Tom en Gerie",
  "ondertitel": "Platen, Stephen King en vondsten",
- "bijgewerkt": "2026-11-07T15:48:47+00:00",
+ "bijgewerkt": "2026-11-08T04:30:08+00:00",
  "collecties": [
   {
    "id": "01a18bce-3b9e-744d-bebf-d0201d07006b",
@@ -17663,6 +17663,209 @@
       ]
      ],
      "discogs": "https://www.discogs.com/release/37720773-Muse-The-Wow-Signal"
+    },
+    {
+     "id": "01a1b6c9-7d78-72fc-85f0-2242f749ec7e",
+     "naam": "A New World Record",
+     "sub": "Electric Light Orchestra",
+     "groep": "",
+     "cover": "covers/01a1b6c9-7d78-72fc-85f0-2242f749ec7e-0fe7206e.jpg",
+     "toegevoegd": "2026-11-07T17:13:40+01:00",
+     "velden": [
+      [
+       "Inventarisnummer",
+       "PL-0156"
+      ],
+      [
+       "Artiest",
+       "Electric Light Orchestra"
+      ],
+      [
+       "Jaar",
+       "1976"
+      ],
+      [
+       "Label / Nr.",
+       "United Artists Records - UA-LA679-G"
+      ],
+      [
+       "Formaat",
+       "LP"
+      ],
+      [
+       "Genre",
+       "Classic Rock"
+      ],
+      [
+       "Land",
+       "Verenigde Staten"
+      ],
+      [
+       "Staat Vinyl",
+       "Very Good Plus (VG+)"
+      ],
+      [
+       "Staat Hoes",
+       "Very Good Plus (VG+)"
+      ]
+     ],
+     "tracks": [
+      [
+       "",
+       "This Side (Side 1)",
+       ""
+      ],
+      [
+       "A1",
+       "Tightrope",
+       "5:00"
+      ],
+      [
+       "A2",
+       "Telephone Line",
+       "4:38"
+      ],
+      [
+       "A3",
+       "Rockaria!",
+       "3:12"
+      ],
+      [
+       "A4",
+       "Mission (A World Record)",
+       "4:24"
+      ],
+      [
+       "",
+       "The Other Side (Side 2)",
+       ""
+      ],
+      [
+       "B1",
+       "So Fine",
+       "3:55"
+      ],
+      [
+       "B2",
+       "Livin' Thing",
+       "3:31"
+      ],
+      [
+       "B3",
+       "Above The Clouds",
+       "2:16"
+      ],
+      [
+       "B4",
+       "Do Ya",
+       "3:45"
+      ],
+      [
+       "B5",
+       "Shangri-La",
+       "5:34"
+      ]
+     ],
+     "discogs": "https://www.discogs.com/release/9735865-Electric-Light-Orchestra-A-New-World-Record"
+    },
+    {
+     "id": "01a1b6c9-7e97-7838-89ae-2fd3ca594414",
+     "naam": "Crosby, Stills & Nash",
+     "sub": "Crosby, Stills & Nash",
+     "groep": "",
+     "cover": "covers/01a1b6c9-7e97-7838-89ae-2fd3ca594414-b200e40d.jpg",
+     "toegevoegd": "2026-11-07T17:13:40+01:00",
+     "velden": [
+      [
+       "Inventarisnummer",
+       "PL-0157"
+      ],
+      [
+       "Artiest",
+       "Crosby, Stills & Nash"
+      ],
+      [
+       "Jaar",
+       "1969"
+      ],
+      [
+       "Label / Nr.",
+       "Atlantic SD-8229"
+      ],
+      [
+       "Formaat",
+       "LP"
+      ],
+      [
+       "Genre",
+       "Folk Rock"
+      ],
+      [
+       "Land",
+       "Verenigde Staten"
+      ],
+      [
+       "Staat Vinyl",
+       "Good Plus (G+)"
+      ],
+      [
+       "Staat Hoes",
+       "Good Plus (G+)"
+      ]
+     ],
+     "tracks": [
+      [
+       "A1",
+       "Suite: Judy Blue Eyes",
+       ""
+      ],
+      [
+       "A2",
+       "Marrakesh Express",
+       ""
+      ],
+      [
+       "A3",
+       "Guinnevere",
+       ""
+      ],
+      [
+       "A4",
+       "You Don't Have To Cry",
+       ""
+      ],
+      [
+       "A5",
+       "Pre-Road Downs",
+       ""
+      ],
+      [
+       "B1",
+       "Wooden Ships",
+       ""
+      ],
+      [
+       "B2",
+       "Lady Of The Island",
+       ""
+      ],
+      [
+       "B3",
+       "Helplessly Hoping",
+       ""
+      ],
+      [
+       "B4",
+       "Long Time Gone",
+       ""
+      ],
+      [
+       "B5",
+       "49 Bye-Byes",
+       ""
+      ]
+     ],
+     "discogs": "https://www.discogs.com/release/32901276-Crosby-Stills-Nash-Crosby-Stills-Nash"
     }
    ]
   },
