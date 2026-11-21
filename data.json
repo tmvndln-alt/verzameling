@@ -1,7 +1,7 @@
 {
  "titel": "De verzamelingen van Tom en Gerie",
  "ondertitel": "Platen, Stephen King en vondsten",
- "bijgewerkt": "2026-11-21T04:30:09+00:00",
+ "bijgewerkt": "2026-11-21T13:56:19+00:00",
  "collecties": [
   {
    "id": "01a18bce-3b9e-744d-bebf-d0201d07006b",
@@ -17866,6 +17866,215 @@
       ]
      ],
      "discogs": "https://www.discogs.com/release/32901276-Crosby-Stills-Nash-Crosby-Stills-Nash"
+    },
+    {
+     "id": "01a1fe61-88cb-7973-be08-ff915a43f8cb",
+     "naam": "To Our Children's Children's Children",
+     "sub": "The Moody Blues",
+     "groep": "",
+     "cover": "covers/01a1fe61-88cb-7973-be08-ff915a43f8cb-bb026870.jpg",
+     "toegevoegd": "2026-11-21T14:52:47+01:00",
+     "velden": [
+      [
+       "Inventarisnummer",
+       "PL-0158"
+      ],
+      [
+       "Artiest",
+       "The Moody Blues"
+      ],
+      [
+       "Jaar",
+       "1969"
+      ],
+      [
+       "Label / Nr.",
+       "Threshold"
+      ],
+      [
+       "Formaat",
+       "LP"
+      ],
+      [
+       "Genre",
+       "Progressive Rock"
+      ],
+      [
+       "Staat Vinyl",
+       "Very Good Plus (VG+)"
+      ],
+      [
+       "Staat Hoes",
+       "Very Good Plus (VG+)"
+      ]
+     ],
+     "tracks": [
+      [
+       "A1",
+       "Higher And Higher",
+       ""
+      ],
+      [
+       "A2",
+       "Eyes Of A Child 1",
+       ""
+      ],
+      [
+       "A3",
+       "Floating",
+       ""
+      ],
+      [
+       "A4",
+       "Eyes Of A Child 2",
+       ""
+      ],
+      [
+       "A5",
+       "I Never Thought I'd Live To Be A Hundred",
+       ""
+      ],
+      [
+       "A6",
+       "Beyond",
+       ""
+      ],
+      [
+       "A7",
+       "Out And In",
+       ""
+      ],
+      [
+       "B1",
+       "Gypsy",
+       ""
+      ],
+      [
+       "B2",
+       "Eternity Road",
+       ""
+      ],
+      [
+       "B3",
+       "Candle Of Life",
+       ""
+      ],
+      [
+       "B4",
+       "Sun Is Still Shining",
+       ""
+      ],
+      [
+       "B5",
+       "I Never Thought I'd Live To Be A Million",
+       ""
+      ],
+      [
+       "B6",
+       "Watching And Waiting",
+       ""
+      ]
+     ],
+     "discogs": "https://www.discogs.com/release/8307133-The-Moody-Blues-To-Our-Childrens-Childrens-Children"
+    },
+    {
+     "id": "01a1fe61-89e9-77fb-a5c0-602dc5b2a582",
+     "naam": "Suzanne Vega",
+     "sub": "Suzanne Vega",
+     "groep": "",
+     "cover": "covers/01a1fe61-89e9-77fb-a5c0-602dc5b2a582-86a26940.jpg",
+     "toegevoegd": "2026-11-21T14:52:47+01:00",
+     "velden": [
+      [
+       "Inventarisnummer",
+       "PL-0159"
+      ],
+      [
+       "Artiest",
+       "Suzanne Vega"
+      ],
+      [
+       "Jaar",
+       "1985"
+      ],
+      [
+       "Label / Nr.",
+       "A&M Records 395 072-1"
+      ],
+      [
+       "Formaat",
+       "LP"
+      ],
+      [
+       "Genre",
+       "Folk / Pop Rock"
+      ],
+      [
+       "Land",
+       "Europa"
+      ],
+      [
+       "Staat Vinyl",
+       "Very Good Plus (VG+)"
+      ],
+      [
+       "Staat Hoes",
+       "Very Good Plus (VG+)"
+      ]
+     ],
+     "tracks": [
+      [
+       "A1",
+       "Cracking",
+       "2:47"
+      ],
+      [
+       "A2",
+       "Freeze Tag",
+       "2:39"
+      ],
+      [
+       "A3",
+       "Marlene On The Wall",
+       "3:37"
+      ],
+      [
+       "A4",
+       "Small Blue Thing",
+       "3:53"
+      ],
+      [
+       "A5",
+       "Straight Lines",
+       "3:47"
+      ],
+      [
+       "B1",
+       "Undertow",
+       "3:26"
+      ],
+      [
+       "B2",
+       "Some Journey",
+       "3:37"
+      ],
+      [
+       "B3",
+       "The Queen And The Soldier",
+       "4:47"
+      ],
+      [
+       "B4",
+       "Knight Moves",
+       "3:34"
+      ],
+      [
+       "B5",
+       "Neighborhood Girls",
+       "3:19"
+      ]
+     ],
+     "discogs": "https://www.discogs.com/release/12581475-Suzanne-Vega-Suzanne-Vega"
     }
    ]
   },
